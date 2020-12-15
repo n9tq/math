@@ -52,8 +52,8 @@ def main(argv):
                     m=(-1*abs(rise),abs(run))
         else:
             m = (slope, '1')
-            print('rise ' + slope)
-            print('run ' + '1')
+            #print('rise ' + slope)
+            #print('run ' + '1')
 
     if p1:
         x1 = float(p1.split(',')[0])
@@ -88,18 +88,18 @@ def main(argv):
 
     else:      
         by = y1 - float(m[0])/float(m[1]) * x1
-        print('b ', by)
+        #print('b ', by)
         bx = -1 * by * float(m[1])/float(m[0])
         if int(m[1]) == 1:
             stringm = str(int(m[0]))
         else:
             stringm = str(int(m[0])) + '/' + str(int(m[1]))
         #stringb = m[0] + '/' + m[1]
-        print (stringm)
+        #print (stringm)
 
         if by < 0:
-            by = abs(by)
-            print('Equation of the line: y = ' + stringm + 'x - ' + str(by))
+            #by = abs(by)
+            print('Equation of the line: y = ' + stringm + 'x - ' + str(abs(by)))
         else:
             print('Equation of the line: y = ' + stringm + 'x + ' + str(by))
         print('Slope (m) = ' + stringm)
