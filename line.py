@@ -20,14 +20,17 @@ def main(argv):
     p2 = ""
 
     while i < len(argv):
-        if argv[i] == '-m':
+        if argv[i] == '-m' or argv[i] == 'm':
             slope = argv[i + 1]
             i += 2
-        elif argv[i] == '-p1':
+        elif argv[i] == '-p1' or argv[i] == 'p1':
             p1 = argv[i + 1]
             i += 2
-        elif argv[i] == '-p2':
+        elif argv[i] == '-p2' or argv[i] == 'p2':
             p2 = argv[i + 1]
+            i += 2
+        elif argv[i] == '-b' or argv[i] == 'b':
+            p1 = '0,' + argv[i+1]
             i += 2
         else:
             i += 1
@@ -43,6 +46,10 @@ def main(argv):
                 m=('x','x')
             else:
                 m=(rise,run)
+                if rise * run > 0:
+                    m=(abs(rise),abs(run))
+                else:
+                    m=(-1*abs(rise),abs(run))
         else:
             m = (slope, '1')
             print('rise ' + slope)
