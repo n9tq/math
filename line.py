@@ -34,14 +34,17 @@ def main(argv):
 
     if slope:
         if '/' in slope:
-            print('slope ' + slope)
+            #print('slope ' + slope)
             rise = int(slope.split('/')[0])
             run = int(slope.split('/')[1])
-            print('rise ', rise)
-            print('run ', run)
-            if slope.split('/')[1] == '0':
+            #print('rise ', rise)
+            #print('run ', run)
+            if run == 0:
                 m=('x','x')
+            else:
+                m=(rise,run)
         else:
+            m = (slope, '1')
             print('rise ' + slope)
             print('run ' + '1')
 
@@ -79,16 +82,19 @@ def main(argv):
     else:      
         by = y1 - float(m[0])/float(m[1]) * x1
         print('b ', by)
-
         bx = -1 * by * float(m[1])/float(m[0])
-        print('bx ', bx)
-
-        type(m)
-        stringm = str(int(m[0])) + '/' + str(int(m[1]))
+        if int(m[1]) == 1:
+            stringm = str(int(m[0]))
+        else:
+            stringm = str(int(m[0])) + '/' + str(int(m[1]))
         #stringb = m[0] + '/' + m[1]
         print (stringm)
 
-        print('Equation of the line: y = ' + stringm + 'x + ' + str(by))
+        if by < 0:
+            by = abs(by)
+            print('Equation of the line: y = ' + stringm + 'x - ' + str(by))
+        else:
+            print('Equation of the line: y = ' + stringm + 'x + ' + str(by))
         print('Slope (m) = ' + stringm)
         print('Y-Intercept (b) = ' + str(by))
         print('X-Intercept = ' + str(bx))
